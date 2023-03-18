@@ -7,7 +7,7 @@ import os
 
 app = Flask(__name__)
 _province = ["เชียงใหม่", "กระบี่", "กาญจนบุรี", "นครราชสีมา", "อุดรธานี"]
-@app.route('/temple', methods=['GET'])
+@app.route("/temple", methods=["GET"])
 def temple():
     data = {"temple" : []}
     for p in _province:
@@ -19,7 +19,7 @@ def temple():
     json_data = json.dumps(data, ensure_ascii=False,indent=3)
     return json_data
 
-@app.route('/temple/<province>', methods=['GET'])
+@app.route("/temple/<province>", methods=["GET"])
 def get_temple_by_province(province):
     print(province)
     if province not in _province:
@@ -35,7 +35,7 @@ def get_temple_by_province(province):
     json_data = json.dumps(data, ensure_ascii=False,indent=3)
     return json_data
 
-if __name__ == '__main__':
-    path = Path('.env')
+if __name__ == "__main__":
+    path = Path(".env")
     load_dotenv(dotenv_path=path)
-    app.run(port=os.environ.get('PORT'))
+    app.run(debug=True,port=os.environ.get('PORT'),host='0.0.0.0')
