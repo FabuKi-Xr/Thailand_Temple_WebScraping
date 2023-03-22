@@ -6,10 +6,13 @@ class CSVWriter:
         self.csv_file = None
 
     def write(self, data:list):
+        _uniqueKey = []
         with open(self.filename, 'w+', encoding='utf8', newline='') as csv_file:
             raw = ""
             for d in data:
-                raw += d + '\n'
+                if d not in _uniqueKey:
+                    _uniqueKey.append(d)
+                    raw += d + '\n'
             csv_file.write(raw[:-1])
             self.csv_file = csv_file
 
