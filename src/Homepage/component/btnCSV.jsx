@@ -1,19 +1,17 @@
 import React from "react";
 import * as XLSX from "xlsx";
-
+import moment from "moment";
 export default function BtnCSV(props) {
   const { data } = props;
   const handleOnExport = () => {
     const mergedData = data.flat();
-    let csvData = mergedData.map((item) => ({
-      temple: item.temple,
-      province: item.province,
-    }));
+    let csvData = mergedData.map((item) => ([item] ));
     var wb = XLSX.utils.book_new(),
-      ws = XLSX.utils.json_to_sheet(csvData);
+    ws = XLSX.utils.aoa_to_sheet(csvData);
 
     XLSX.utils.book_append_sheet(wb, ws, "Sheet1");
-    XLSX.writeFile(wb, `Temple.csv`);
+    
+    XLSX.writeFile(wb, `Temple_${moment().format('YYYYMMDDHHmmss')}.csv`);
   };
   return (
     <div onClick={() => {          

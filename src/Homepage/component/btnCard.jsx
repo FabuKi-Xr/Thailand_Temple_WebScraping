@@ -11,6 +11,7 @@ function BtnCard({ label, checked, onChange }) {
             className="hidden"
             checked={checked}
             onChange={onChange}
+   
           />
           {checked && (
             <svg
