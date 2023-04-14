@@ -5,8 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "set \"GENERATE_SOURCEMAP=false\" && react-scripts build",
-    "postbuild": "rimraf build/static/**/*.map",
+    "build": "set \"GENERATE_SOURCEMAP=false\" react-scripts build",
     "preview": "vite preview"
   },
   "dependencies": {

@@ -99,7 +99,7 @@ function Home() {
     .map((i) => i.data);
   const mergedData = dataSelect.flat();
 
-  console.log(data_CSV)
+  // console.log(data_CSV)
   
   return (
     <div className="relative bg-[#95CCFF] h-screen ">
