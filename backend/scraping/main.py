@@ -17,7 +17,6 @@ if __name__ == "__main__":
     for province in Province_url:
         crawl = Scraper(Province_url[province],temple_info_div_regex_pattern).crawl()
         temples = crawl.scrape(temple_regex_pattern,province)
-        break
         writer = CSVWriter(f"../data/{province}2.csv","ชื่อวัด")
         writer.write(temples)
         writer.close()
