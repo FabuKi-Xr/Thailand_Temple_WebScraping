@@ -6,6 +6,12 @@ class CSVWriter:
         self.csv_file = None
 
     def write(self, data:list):
+        """
+        write datalist to csv file.
+        
+        parameters:
+            data (list) : the list of data to write
+        """
         _uniqueKey = []
         with open(self.filename, 'w+', encoding='utf8', newline='') as csv_file:
             raw = ""
